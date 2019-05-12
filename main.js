@@ -1,25 +1,17 @@
 const {RTMClient} = require('@slack/client');
-const weatherChecker = require('./functions/weather-checker');
-const facilitatorDecider = require('./functions/facilitator-decider');
+const botController = require('./bot-controller');
+const logger = require('./functions/logger');
 
 // BotのAuthトークンを設定する
 const token = process.env.SLACK_BOT_OAUTH_TOKEN;
 const rtm = new RTMClient(token);
 
+
+//todo: loggingライブラリを使う
 const slack = rtm.start();
-console.log('start');
 
-// front controller
-rtm.on('message', (event) => {
-
-    if (event.text !== undefined) {
-        if (event.text.match(/(.*ふぁしり.*|.*しょき.*)/)) {
-            facilitatorDecider(event);
-        } else if (event.text.match(/.*てんき.*/)) {
-            weatherChecker(event);
-        }
-    } else {
-        console.error('Undefined object called');
-    }
+slack.then(() => {
+    logger.info('start');
+    botController(rtm)
 });
 

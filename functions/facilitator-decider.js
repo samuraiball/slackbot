@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require("readline");
 const sendAMessage = require('./message-sender');
+const Logger = require('./logger');
 
 // メンバーリストの初期作成
 // todo:NAME_LIST_PATHは設定ファイルから読み込むようにする。
@@ -18,6 +19,7 @@ reader.on("line", (data) => {
  */
 function facilitatorDecider(event) {
 
+    Logger.info('facilitator-decider is called');
     // メンバーの選定
     const n = Math.floor(Math.random() * names.length);
     const chosenPerson = names[n];
@@ -33,7 +35,7 @@ function facilitatorDecider(event) {
         });
     }
     // リストの残りのメンバーをログに出力
-    console.log("残りのメンバー:" + names);
+    Logger.info('rest of list of members: ' + '\u001b[33m' + names + '\u001b[0m');
 
     sendAMessage(chosenPerson + 'さん。\nお願いします。', event);
 }

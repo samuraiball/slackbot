@@ -1,5 +1,6 @@
 const req = require('request');
 const sendAMessage = require('./message-sender');
+const Logger = require('./logger');
 
 // 東京都の天気
 // todo: 東京都以外の天気取得も行えるようにする
@@ -16,6 +17,8 @@ const weatherOpt = {
  * @param event slackのevent情報
  */
 function weatherChecker(event) {
+
+    Logger.info('weather-checker is called');
      req(weatherOpt, (err, res, weather) => {
         if (event.text.match(/.*あした.*/)) {
             sendAMessage(`明日の${weather.location.prefecture}の天気は${weather.forecasts[1].telop}です!`, event);
