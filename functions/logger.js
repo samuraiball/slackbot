@@ -2,8 +2,8 @@ require('date-utils');
 
 module.exports = class Logger {
 
-    static info(text) {
-        console.info( dateCreator() + '[INFO] : \u001b[36m' + text + '\u001b[0m');
+    static info(message) {
+        console.info( dateCreator() + '[INFO] : \u001b[36m' + message + '\u001b[0m');
     };
 };
 
