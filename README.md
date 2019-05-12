@@ -1,9 +1,10 @@
-# 開発チームサポートBot
+# 開発チームサポートSlack Bot
 ## 動作環境環境
 * Node.js
 
 ## 実行方法
 1. Slack botのアカウントを作成する。
+  * <https://api.slack.com/apps>
 2. 作成時に払い出されるbotの`Bot User OAuth Access Token`を設定しbotを起動する。
 ```
 export(or setx) SLACK_BOT_OAUTH_TOKEN=[Bot User OAuth Access Token]
