@@ -3,17 +3,14 @@ const weatherChecker = require('./functions/weather-checker');
 const facilitatorDecider = require('./functions/facilitator-decider');
 
 // BotのAuthトークンを設定する
-//todo: 環境変数からの読み込みへ変更する
-const token = '';
+const token = process.env.SLACK_BOT_OAUTH_TOKEN;
 const rtm = new RTMClient(token);
 
-const slack = rtm.start({});
+const slack = rtm.start();
 console.log('start');
 
 // front controller
 rtm.on('message', (event) => {
-
-    console.log('event called');
 
     if (event.text !== undefined) {
         if (event.text.match(/(.*ふぁしり.*|.*しょき.*)/)) {
@@ -22,7 +19,7 @@ rtm.on('message', (event) => {
             weatherChecker(event);
         }
     } else {
-        console.log('Undefined object called');
+        console.error('Undefined object called');
     }
 });
 

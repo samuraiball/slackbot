@@ -4,7 +4,7 @@ const sendAMessage = require('./message-sender');
 
 // メンバーリストの初期作成
 // todo:NAME_LIST_PATHは設定ファイルから読み込むようにする。
-const NAME_LIST_PATH = './resource/names.txt';
+const NAME_LIST_PATH = './resources/names.txt';
 const names = [];
 const stream = fs.createReadStream(NAME_LIST_PATH, "utf8");
 const reader = readline.createInterface({input: stream});

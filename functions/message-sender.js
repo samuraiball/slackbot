@@ -1,6 +1,6 @@
 const {WebClient} = require('@slack/client');
 
-const token = '';
+const token = process.env.SLACK_BOT_OAUTH_TOKEN;
 const web = new WebClient(token);
 
 /**
