@@ -10,7 +10,7 @@ const names = [];
 const stream = fs.createReadStream(NAME_LIST_PATH, "utf8");
 const reader = readline.createInterface({input: stream});
 reader.on("line", (data) => {
-    names.push(data)
+    names.push(data);
 });
 
 /**
@@ -31,9 +31,10 @@ function facilitatorDecider(event) {
         const stream = fs.createReadStream(NAME_LIST_PATH, "utf8");
         const reader = readline.createInterface({input: stream});
         reader.on("line", (data) => {
-            names.push(data)
+            names.push(data);
         });
     }
+
     // リストの残りのメンバーをログに出力
     Logger.info('rest of list of members: ' + '\u001b[33m' + names + '\u001b[0m');
 

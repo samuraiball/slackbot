@@ -2,6 +2,11 @@ const weatherChecker = require('./functions/weather-checker');
 const facilitatorDecider = require('./functions/facilitator-decider');
 const Logger = require('./functions/logger');
 
+/**
+ * フロントコントローラー
+ * @author hirooka
+ * @param rtm rmt
+ */
 function botController(rtm) {
 
     rtm.on('message', (event) => {
