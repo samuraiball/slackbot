@@ -15,7 +15,7 @@ rtm.on('message', (event) => {
 
     console.log('event called');
 
-    if (event.text != undefined) {
+    if (event.text !== undefined) {
         if (event.text.match(/(.*ふぁしり.*|.*しょき.*)/)) {
             sendAMessage(facilitatorDecider(), event);
         } else if (event.text.match(/.*てんき.*/)) {

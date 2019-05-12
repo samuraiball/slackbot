@@ -17,7 +17,7 @@ function facilitatorDecider() {
     const chosenPerson = names[n];
 
     names.splice(n, 1);
-    if (names.length == 0) {
+    if (names.length === 0) {
         const stream = fs.createReadStream(NAME_LIST_PATH, "utf8");
         const reader = readline.createInterface({input: stream});
         reader.on("line", (data) => {
