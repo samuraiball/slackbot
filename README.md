@@ -1,7 +1,3 @@
-## todo
-* 環境変数から`Bot User OAuth Access Token`を読み出せるように変える。
-* READMEを書き直す。
-
 # 開発チームサポートBot
 ## 動作環境環境
 * Node.js
@@ -20,7 +16,7 @@ node main.js
 ファシリテータや初期をランダムで選んで決めてくれる機能
 
 ## 実行方法
-names.txtに名前リストを書く
+前提:アプリ起動時にnames.txtにメンバーの名前が書かれている。
 Slackで`ふぁしり`,もしくは`しょき`という文字列が含まれた文章をつぶやく
 
 ## weather-checker

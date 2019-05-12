@@ -33,7 +33,7 @@ function facilitatorDecider(event) {
         });
     }
     // リストの残りのメンバーをログに出力
-    console.log(names);
+    console.log("残りのメンバー:" + names);
 
     sendAMessage(chosenPerson + 'さん。\nお願いします。', event);
 }
