@@ -6,8 +6,6 @@ const logger = require('./functions/logger');
 const token = process.env.SLACK_BOT_OAUTH_TOKEN;
 const rtm = new RTMClient(token);
 
-
-//todo: loggingライブラリを使う
 const slack = rtm.start();
 
 slack.then(() => {
