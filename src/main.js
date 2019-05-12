@@ -1,7 +1,6 @@
 const {RTMClient} = require('@slack/client');
 const weatherChecker = require('./functions/weather-checker');
 const facilitatorDecider = require('./functions/facilitator-decider');
-const sendAMessage = require('./functions/message-sender')
 
 // BotのAuthトークンを設定する
 //todo: 環境変数からの読み込みへ変更する
@@ -18,7 +17,7 @@ rtm.on('message', (event) => {
 
     if (event.text !== undefined) {
         if (event.text.match(/(.*ふぁしり.*|.*しょき.*)/)) {
-            sendAMessage(facilitatorDecider(), event);
+            facilitatorDecider(event);
         } else if (event.text.match(/.*てんき.*/)) {
             weatherChecker(event);
         }

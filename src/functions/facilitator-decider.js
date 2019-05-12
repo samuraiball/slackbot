@@ -1,10 +1,11 @@
 const fs = require('fs');
 const readline = require("readline");
-const names = [];
+const sendAMessage = require('./message-sender');
 
-// メンバーリストの初期取得
+// メンバーリストの初期作成
 // todo:NAME_LIST_PATHは設定ファイルから読み込むようにする。
 const NAME_LIST_PATH = './resource/names.txt';
+const names = [];
 const stream = fs.createReadStream(NAME_LIST_PATH, "utf8");
 const reader = readline.createInterface({input: stream});
 reader.on("line", (data) => {
@@ -15,7 +16,7 @@ reader.on("line", (data) => {
  * リストのメンバーを1名選びSlackにメッセージを送る。
  * @author hirooka
  */
-function facilitatorDecider() {
+function facilitatorDecider(event) {
 
     // メンバーの選定
     const n = Math.floor(Math.random() * names.length);
@@ -34,8 +35,7 @@ function facilitatorDecider() {
     // リストの残りのメンバーをログに出力
     console.log(names);
 
-    // todo: 返却するのではなくSlackに直接メッセージを送るようにする。
-    return chosenPerson + 'さん。\nお願いします。';
+    sendAMessage(chosenPerson + 'さん。\nお願いします。', event);
 }
 
 module.exports = facilitatorDecider;
