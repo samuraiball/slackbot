@@ -11,6 +11,7 @@ const rtm = new RTMClient(token);
 const slack = rtm.start({});
 console.log('start');
 
+// front controller
 rtm.on('message', (event) => {
 
     console.log('event called');
