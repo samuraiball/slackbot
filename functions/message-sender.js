@@ -19,7 +19,7 @@ function sendAMessage(whatToSay, event) {
         text: whatToSay
     });
 
-    Logger.info('\n\nsent massage:\n' + whatToSay + '\n');
+    Logger.infoWithPrefix('sent massage', whatToSay.replace(/\r?\n/g, ''));
 }
 
 module.exports = sendAMessage;

@@ -36,7 +36,7 @@ function facilitatorDecider(event) {
     }
 
     // リストの残りのメンバーをログに出力
-    Logger.info('rest of list of members: ' + '\u001b[33m' + names + '\u001b[0m');
+    Logger.infoWithPrefix('rest of list of members', names);
 
     sendAMessage(chosenPerson + 'さん。\nお願いします。', event);
 }
