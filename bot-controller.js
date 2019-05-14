@@ -10,7 +10,7 @@ const Logger = require('./functions/logger');
 function botController(rtm) {
 
     rtm.on('message', (event) => {
-        Logger.info('event called');
+        Logger.info('message caught');
         if (event.text !== undefined) {
             if (event.text.match(/(.*ふぁしり.*|.*しょき.*)/)) {
                 facilitatorDecider(event);
